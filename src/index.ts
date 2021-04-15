@@ -20,12 +20,8 @@ const main = async (): Promise<void> => {
 
   switch (context.eventName) {
     case 'check_suite':
-      return continuousIntegrationEndHandle(
-        octokit,
-        GITHUB_LOGIN,
-        MAXIMUM_RETRIES,
-      );
     case 'workflow_run':
+    case 'pull_request':
       return continuousIntegrationEndHandle(
         octokit,
         GITHUB_LOGIN,
